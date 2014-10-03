@@ -4,7 +4,7 @@ define [
   "backbone"
   "mustache"
 
-  "text!../tpl/home.mustache"
+  "text!../tpl/followers.mustache"
 ],
 (
   $
@@ -15,7 +15,7 @@ define [
   tpl
 ) ->
 
-  HomeView = Backbone.View.extend do
+  FollowersView = Backbone.View.extend do
 
     template: tpl
 

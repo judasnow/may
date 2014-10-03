@@ -5,6 +5,9 @@ define [
 
   'ls!pages'
   'ls!app/tweepee/view/home'
+  'ls!app/tweepee/view/new_tweet'
+  'ls!app/tweepee/view/following'
+  'ls!app/tweepee/view/followers'
 ], (
   $,
   _,
@@ -12,6 +15,9 @@ define [
 
   Pages
   HomeView
+  NewTweetView
+  FollowingView
+  FollowersView
 ) ->
 
   TweepeeRoutes = Backbone.Router.extend do
@@ -28,8 +34,18 @@ define [
       _.bindAll @, '_home_page'
       @_pages = new Pages do
         \home-page : [HomeView, '#pages']
+        \new-tweet : [NewTweetView, '#pages']
+        \following : [FollowingView, '#pages']
+        \followers : [FollowersView, '#pages']
 
     _home_page: ->
       @_pages.show \home-page
 
+    _new_tweet: ->
+      @_pages.show \new-tweet
 
+    _following: ->
+      @_pages.show \following
+
+    _followers: ->
+      @_pages.show \followers

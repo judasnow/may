@@ -14,7 +14,7 @@ define [], ->
     _gc: ->
       console.log \will_do_gc
 
-    _free: (page-name) ->
+    free: (page-name) ->
       console.dir "will free #{page-name}"
 
     show: (page-name) ->
