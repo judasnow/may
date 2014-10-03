@@ -2,7 +2,7 @@
 
 define [
   "backbone"
-  "ls!app/admin/main_panel/route"
+  "ls!app/tweepee/route"
 ], (
   Backbone
   Routes
