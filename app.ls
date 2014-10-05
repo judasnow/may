@@ -1,19 +1,22 @@
-logger = require \koa-logger
-route = require \koa-route
-parse = require \co-body
-views = require \co-views
-require! \koa
+require! http
+require! fs
+require! url
+require! buffer
 
-app = koa!
-app.use logger!
-render = views do
-  __dirname + '/'
-  ext: 'ejs'
+class May
+  (conf) ->
+    @conf = conf
 
-# controller
-home = ->*
-  this.body = yield render 'index'
+root-path = './'
 
-app.use <| route.get '/1/timeline' home
+srv = http.createServer (req, res) ->
+  (err, data) <- fs.readFile \index.html
+  if err
+    throw err
+  else
+    res.setHeader \
+    res.end data
 
-app.listen 8888
+srv.listen 8888
+
+
